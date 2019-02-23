@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"itemName": "Battle axe",
+		"imgSrc": "battle_axe.png",
+		"pricePerUnit": 5
+	},
+	{
+		"id": 2,
+		"itemName": "Wooden Shield",
+		"imgSrc": "wooden_shield.png",
+		"pricePerUnit": 7
+	},
+	{
+		"id": 3,
+		"itemName": "Bronze sword",
+		"imgSrc": "bronze_sword.png",
+		"pricePerUnit": 4
+	},
+	{
+		"id": 4,
+		"itemName": "Longsword",
+		"imgSrc": "longsword.png",
+		"pricePerUnit": 3
+	}
+]

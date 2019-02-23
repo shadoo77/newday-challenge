@@ -1,0 +1,22 @@
+[
+	{
+		"id": 1,
+		"name": "Shadi",
+		"goldCoins": 77
+	},
+	{
+		"id": 2,
+		"name": "Tim",
+		"goldCoins": 50
+	},
+	{
+		"id": 3,
+		"name": "Peter",
+		"goldCoins": 150
+	},
+	{
+		"id": 4,
+		"name": "Random",
+		"goldCoins": 96
+	}
+]

@@ -1,0 +1,15 @@
+// My Bootstrap configuration
+@import 'custom_bootstrap';
+
+// Bootstrap library
+@import 'bootstrap/scss/bootstrap';
+
+// Here you can import more .scss files or write scss code.
+@import "bootstrap/scss/_functions.scss";
+@import "bootstrap/scss/_variables.scss";
+
+$grid-breakpoints: (xs: 0, sm: 480px, md: 768px, lg: 992px, xl: 1200px, xxl: 1366px);
+
+$container-max-widths: (sm: 480px, md: 768px, lg: 992px, xl: 1200px, xxl: 1366px);
+
+@import 'bootstrap/scss/bootstrap';

@@ -1,0 +1,156 @@
+.App {
+	text-align: center;
+}
+
+.App-logo {
+	animation: App-logo-spin infinite 20s linear;
+	height: 40vmin;
+	pointer-events: none;
+}
+
+.App-header {
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
+}
+
+.App-link {
+	color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+/* &&&&&&&&&&&&&& Challenge */
+.show-feedback {
+	visibility: visible;
+}
+.hidden-feedback {
+	visibility: hidden;
+}
+
+.navbar-item {
+	font-weight: bold;
+}
+
+.site-container {
+	width: 100%;
+	margin: auto;
+}
+.single-item-row {
+	margin: 8px 0;
+}
+.single-item-row .col {
+	padding: 0;
+}
+
+.dialog-header {
+	width: 100%;
+}
+.dialog-header span:first-child {
+	float: left;
+}
+.dialog-header span:last-child {
+	float: right;
+	cursor: pointer;
+}
+.total-cost {
+	font-weight: bold;
+}
+.total-cost span:first-child {
+	float: left;
+	margin-left: 15px;
+}
+.total-cost span:last-child {
+	float: right;
+	margin-right: 15px;
+}
+.dialog-header::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.img-item img {
+	width: 60px;
+	height: 60px;
+}
+.img-item,
+.amount-area {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.img-item {
+	justify-content: flex-start;
+	flex-flow: row wrap;
+}
+.amount-area {
+	justify-content: flex-end;
+	flex-flow: row nowrap;
+}
+
+.amount-area img {
+	width: 11px;
+	height: 11px;
+}
+
+.icon-wraapper {
+	width: 17px;
+	height: 17px;
+	padding: 3px;
+	display: flex;
+	flex-flow: row nowrap;
+	flex-direction: row;
+	align-items: center;
+	background-color: #929292;
+	cursor: pointer;
+}
+
+.img-item div:first-child {
+	margin-right: 10px;
+}
+.img-item::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+input[type="text"] {
+	width: 35px;
+	margin: 0 16px;
+}
+
+div.modal-content {
+	padding: 15px;
+}
+
+.show-alert {
+	visibility: visible;
+}
+.hide-alert {
+	visibility: hidden;
+}
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+@media screen and (max-width: 480px) {
+	div.modal-dialog {
+		margin: 0rem;
+		width: 100%;
+	}
+}
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+@media screen and (min-width: 600px) {
+	.site-container {
+		width: 85%;
+	}
+}
