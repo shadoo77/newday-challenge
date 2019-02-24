@@ -189,7 +189,8 @@ class Home extends Component {
 								<span>{this.state.totalCost}</span>
 							</div>
 							<Alert color="danger" className={this.alertClass()}>
-								You don't have enough gold coins to complete buying!
+								You don't have enough gold coins, you have just{' '}
+								<strong>{this.state.userInfo.goldCoins}</strong> golden coins!
 							</Alert>
 							<ModalFooter>
 								<Button color="secondary" onClick={this.toggle}>
