@@ -7,6 +7,7 @@ import { Alert, Button, Modal, ModalBody, ModalFooter, Row, Col } from 'reactstr
 class Home extends Component {
 	state = {
 		userInfo: {},
+		items: itemsStock,
 		totalCost: 0,
 		values: [],
 		prices: [],
@@ -20,14 +21,6 @@ class Home extends Component {
 		if (num === '' || numCheck) return true;
 		else return false;
 	}
-
-	returnCount = (price) => {
-		let totalCost = this.state.totalCost;
-		totalCost += price;
-		this.setState({
-			totalCost
-		});
-	};
 
 	toggle = () => {
 		this.setState((prevState) => ({
@@ -43,6 +36,11 @@ class Home extends Component {
 		}
 		temp++;
 		values[i] = temp;
+
+		let items = [ ...this.state.items ];
+		let currItem = items[i].available - 1;
+		items[i].available = currItem;
+
 		let prices = [ ...this.state.prices ];
 		values[i] = temp;
 		prices[i] = temp * pricePerUnit;
@@ -56,6 +54,11 @@ class Home extends Component {
 		if (temp > 0) {
 			temp--;
 			values[i] = temp;
+
+			let items = [ ...this.state.items ];
+			let currItem = items[i].available + 1;
+			items[i].available = currItem;
+
 			let prices = [ ...this.state.prices ];
 			values[i] = temp;
 			prices[i] = temp * pricePerUnit;
@@ -65,7 +68,7 @@ class Home extends Component {
 	};
 
 	showStockItems = () => {
-		return itemsStock.map((item, i) => {
+		return this.state.items.map((item, i) => {
 			return (
 				<Row className="single-item-row" key={'item' + i}>
 					<Col>
@@ -74,7 +77,13 @@ class Home extends Component {
 								<img src={'./images/' + item.imgSrc} alt={item.itemName} />
 							</div>
 							<div>
-								<span>{item.itemName}</span>
+								<span>
+									<div>
+										{item.itemName} <br />
+										<span style={{ color: 'red' }}>{item.available + ' '}</span>
+										<span style={{ color: 'green' }}> op voorraad</span>
+									</div>
+								</span>
 							</div>
 						</div>
 					</Col>
@@ -88,6 +97,7 @@ class Home extends Component {
 									type="text"
 									value={this.state.values[i] || ''}
 									onChange={(e) => this.handleChange(e, item.pricePerUnit, i)}
+									onBlur={(e) => this.handleBlur(e, i)}
 								/>
 							</div>
 							<div className="icon-wraapper" onClick={() => this.increment(item.pricePerUnit, i)}>
@@ -103,7 +113,10 @@ class Home extends Component {
 
 	retrieveTotalCost(prices) {
 		let temp = 0;
-		temp = prices.reduce((prev, next) => prev + next, 0);
+		temp = prices.reduce((prev, next) => {
+			if (!next) next = 0;
+			return prev + next;
+		}, 0);
 		this.setState({ totalCost: temp });
 	}
 
@@ -117,6 +130,13 @@ class Home extends Component {
 			this.setState({ values, prices });
 			this.retrieveTotalCost(prices);
 		}
+	};
+
+	handleBlur = (e, i) => {
+		let items = [ ...this.state.items ];
+		let currItem = items[i].available - e.target.value;
+		items[i].available = currItem;
+		this.setState({ items });
 	};
 
 	handleSubmit = (e) => {
@@ -140,7 +160,11 @@ class Home extends Component {
 	async componentDidMount() {
 		const userName = localStorage.getItem('auth-user');
 		const userInfo = userData.filter((el) => el.name === userName);
-		this.setState({ userInfo: userInfo[0] });
+		const values = [];
+		for (var i = 0; i < itemsStock.length; i++) {
+			values.push(0);
+		}
+		this.setState({ userInfo: userInfo[0], values });
 	}
 	render() {
 		return (

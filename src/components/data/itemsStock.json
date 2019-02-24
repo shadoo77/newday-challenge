@@ -3,24 +3,28 @@
 		"id": 1,
 		"itemName": "Battle axe",
 		"imgSrc": "battle_axe.png",
+		"available": 200,
 		"pricePerUnit": 5
 	},
 	{
 		"id": 2,
 		"itemName": "Wooden Shield",
 		"imgSrc": "wooden_shield.png",
+		"available": 250,
 		"pricePerUnit": 7
 	},
 	{
 		"id": 3,
 		"itemName": "Bronze sword",
 		"imgSrc": "bronze_sword.png",
+		"available": 300,
 		"pricePerUnit": 4
 	},
 	{
 		"id": 4,
 		"itemName": "Longsword",
 		"imgSrc": "longsword.png",
+		"available": 150,
 		"pricePerUnit": 3
 	}
 ]
