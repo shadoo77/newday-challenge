@@ -94,6 +94,7 @@
 	justify-content: flex-start;
 	flex-flow: row wrap;
 }
+
 .amount-area {
 	justify-content: flex-end;
 	flex-flow: row nowrap;
